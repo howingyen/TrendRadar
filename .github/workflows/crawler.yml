@@ -1,7 +1,7 @@
 name: Get Hot News
 
 on:
-workflow_dispatch: {}
+  workflow_dispatch:  # 手动触发（关键：缩进为2个空格，只保留一次）
   schedule:
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     # ⚠️ 试用版说明 / Trial Mode
@@ -37,8 +37,6 @@ workflow_dispatch: {}
     #   "30 0-14 * * *"  → 北京时间 8:00-22:00 每小时第30分钟 / Beijing 8am-10pm
     #
     - cron: "33 * * * *"
-
-  workflow_dispatch:
 
 concurrency:
   group: crawler-${{ github.ref_name }}
@@ -93,7 +91,6 @@ jobs:
               echo "✅ Trial: ${DAYS_LEFT} days left. Run 'Check In' before expiry to renew."
             fi
           fi
-
 
       # --------------------------------------------------------------------------------
       # 🚦 TRAFFIC CONTROL / 流量控制
